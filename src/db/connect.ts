@@ -11,8 +11,8 @@ const DATABASE = process.env.DATABASE;
 /**
  * Connect to database
 */
-function connect() {
-  mongoose.connect(`mongodb+srv://${USER}:${PASSWORD}@${CLUSTER}/${DATABASE}`).then(() => {
+async function connect() {
+  await mongoose.connect(`mongodb+srv://${USER}:${PASSWORD}@${CLUSTER}/${DATABASE}`).then(() => {
     console.log('Connected to database');
   }).catch((error) => {
     console.log(`Error connecting to database ${error}`);
