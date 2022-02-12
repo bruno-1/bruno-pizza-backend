@@ -23,6 +23,7 @@
     "mongoose": "^6.2.1"
   },
   "scripts": {
+    "build": "tsc",
     "start": "node dist/src/app.js"
   }
 }
