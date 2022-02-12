@@ -1,7 +1,7 @@
 {
   "name": "bruno-pizza",
   "version": "0.0.1",
-  "main": "src/app.js",
+  "main": "app.ts",
   "license": "MIT",
   "devDependencies": {
     "@types/dotenv": "^8.2.0",
@@ -24,6 +24,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "start": "node dist/app.js"
+    "start": "node dist/app.js",
+    "start:dev": "nodemon src/app.ts"
   }
 }
