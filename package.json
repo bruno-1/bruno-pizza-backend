@@ -24,6 +24,6 @@
   },
   "scripts": {
     "build": "tsc",
-    "start": "node dist/src/app.js"
+    "start": "node dist/app.js"
   }
 }
