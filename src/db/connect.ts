@@ -12,11 +12,19 @@ const DATABASE = process.env.DATABASE;
  * Connect to database
 */
 async function connect() {
-  await mongoose.connect(`mongodb+srv://${USER}:${PASSWORD}@${CLUSTER}/${DATABASE}`).then(() => {
-    console.log('Connected to database');
-  }).catch((err) => {
-    console.log(`Error connecting to database \n${err}`);
-  });
+  if (process.env.NODE_ENV === 'production') {
+    await mongoose.connect(`mongodb+srv://${USER}:${PASSWORD}@${CLUSTER}/${DATABASE}`).then(() => {
+      console.log('Connected to database');
+    }).catch((err) => {
+      console.log(`Error connecting to database \n${err}`);
+    });
+  } else if (process.env.NODE_ENV === 'development') {
+    await mongoose.connect(`mongodb://${CLUSTER}/${DATABASE}`).then(() => {
+      console.log('Connected to database');
+    }).catch((err) => {
+      console.log(`Error connecting to database \n${err}`);
+    });
+  }
 }
 
 
